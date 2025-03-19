@@ -1,0 +1,179 @@
+body {
+    font-family: Roboto, sans-serif;
+    background-color: #F1F1F1;
+    margin: 0;
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+    margin-right: 50px; /* Ajuste cette valeur selon l'espace désiré */
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 40px; /* Ajuste cette valeur selon l'espace désiré */
+}
+
+.navbar-nav .nav-link {
+    position: relative; /* Nécessaire pour positionner le pseudo-élément */
+    font-size: 20px;
+    font-weight: bold;
+    color: #080808; /* Couleur du texte par défaut */
+    text-decoration: none; /* Supprimer la décoration de texte par défaut */
+    overflow: hidden; /* Assurer que le pseudo-élément ne dépasse pas le lien */
+}
+
+.navbar-nav .nav-link::after {
+    content: ''; /* Contenu du pseudo-élément */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px; /* Hauteur de la ligne de soulignement */
+    width: 100%;
+    background-color: #34B8FD; /* Couleur de la ligne de soulignement */
+    transform: translateX(-100%); /* Position initiale cachée */
+    transition: transform 0.3s ease; /* Animation progressive */
+}
+
+.navbar-nav .nav-link:hover::after {
+    transform: translateX(0); /* Animation de l'apparition de la ligne */
+}
+
+.nav-link {
+    color: #34B8FD; /* Couleur du texte de déconnexion */
+}
+
+.navbar-nav .nav-item {
+    margin-right: 80px; /* Ajuste cette valeur selon l'espace désiré */
+}
+
+
+/* Conteneur général pour l'effet */
+.card-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Carré bleu partant du haut à droite */
+.blue-background {
+    position: absolute;
+    top: 0; /* Part du haut */
+    right: 0; /* Aligné à droite */
+    width: 50%; /* Largeur ajustée à 50% de la carte */
+    height: 93%; /* Hauteur ajustée à 50% */
+    background-color: #38B6FF; /* Bleu de votre thème */
+    z-index: 0; /* Derrière la carte blanche */
+    border-radius: 15px; /* Coins arrondis */
+
+}
+
+/* Carré bleu partant du haut à droite */
+.blue-background-bas {
+    position: absolute;
+    bottom: 0; /* Part du haut */
+    right: 0; /* Aligné à droite */
+    width: 50%; /* Largeur ajustée à 50% de la carte */
+    height: 89%; /* Hauteur ajustée à 50% */
+    background-color: #38B6FF; /* Bleu de votre thème */
+    z-index: 0; /* Derrière la carte blanche */
+    border-radius: 15px; /* Coins arrondis */
+
+}
+
+/* Carré bleu partant du haut à droite */
+.blue-background-gauche {
+    position: absolute;
+    top: 0; /* Part du haut */
+    left: 0; /* Aligné à droite */
+    width: 50%; /* Largeur ajustée à 50% de la carte */
+    height: 93%; /* Hauteur ajustée à 50% */
+    background-color: #38B6FF; /* Bleu de votre thème */
+    z-index: 0; /* Derrière la carte blanche */
+    border-radius: 15px; /* Coins arrondis */
+
+}
+
+/* Carré bleu partant du haut à droite */
+.red-background-bas {
+    position: absolute;
+    bottom: 0; /* Part du haut */
+    right: 0; /* Aligné à droite */
+    width: 50%; /* Largeur ajustée à 50% de la carte */
+    height: 90%; /* Hauteur ajustée à 50% */
+    background-color: #fe3130; /* Bleu de votre thème */
+    z-index: 0; /* Derrière la carte blanche */
+    border-radius: 15px; /* Coins arrondis */
+
+}
+
+
+.red-background {
+    position: absolute;
+    top: 0; /* Part du haut */
+    left: 0; /* Aligné à droite */
+    width: 50%; /* Largeur ajustée à 50% de la carte */
+    height: 89%; /* Hauteur ajustée à 50% */
+    background-color: #fe3130; /* Bleu de votre thème */
+    z-index: 0; /* Derrière la carte blanche */
+    border-radius: 15px; /* Coins arrondis */
+
+}
+
+/* La carte blanche avec ombre */
+.card-custom {
+    position: relative;
+    z-index: 1; /* Devant le carré bleu */
+    border-radius: 25px; /* Coins arrondis */
+    background-color: #ffffff; /* Fond blanc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    padding: 30px;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden; /* Pour éviter que le contenu dépasse */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style pour l'icône d'information alignée avec le titre */
+.info-icon {
+    position: relative;
+    font-size: 24px;
+    color: #38B6FF; /* Couleur bleu correspondant à votre thème */
+    margin-right: 10px; /* Espace entre l'icône et le texte */
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.info-icon-red {
+    position: relative;
+    font-size: 24px;
+    color: #fe3130; /* Couleur bleu correspondant à votre thème */
+    margin-right: 10px; /* Espace entre l'icône et le texte */
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/* Titre ajusté pour l'alignement avec l'icône */
+
+.card-title {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 0;
+    vertical-align: middle;
+}
+
+.card-title-h2 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 0;
+    vertical-align: middle;
+}
