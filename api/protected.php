@@ -97,12 +97,27 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['comptes_rendus']) && $_
     $comptes_rendus = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if ($comptes_rendus) {
+        foreach ($comptes_rendus as &$cr) {
+            $ids = array_map('intval', explode(',', $cr['echantillons_distribues']));
+
+            if (!empty($ids)) {
+                $placeholders = implode(',', array_fill(0, count($ids), '?'));
+                $stmt2 = $pdo_base->prepare("SELECT nom FROM echantillons WHERE id IN ($placeholders)");
+                $stmt2->execute($ids);
+                $noms = $stmt2->fetchAll(PDO::FETCH_COLUMN);
+                $cr['echantillons_distribues'] = $noms;
+            } else {
+                $cr['echantillons_distribues'] = [];
+            }
+        }
+
         echo json_encode(["status" => 200, "comptes_rendus" => $comptes_rendus]);
     } else {
         echo json_encode(["status" => 404, "message" => "Aucun compte rendu trouvé"]);
     }
     exit();
 }
+
 
 // Récupération d'un compte rendu spécifique
 if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['comptes_rendus']) && isset($_GET['id_cr'])) {
